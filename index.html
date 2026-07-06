@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Pro</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class=" bg-[#05060a]">
+
+  <div class="w-full h-screen">
+      <!-- CINEMATIC BACKGROUND -->
+    <div class="fixed inset-0 -z-20">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#00f5ff22,transparent_40%),radial-gradient(circle_at_80%_30%,#ff00ff22,transparent_40%),radial-gradient(circle_at_50%_80%,#7c3aed22,transparent_40%)]">
+        </div>
+
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,#05060a,#070a12,#02030a)]"></div>
+
+        <!-- moving light scan -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,#ffffff10_50%,transparent_100%)] animate-[scan_6s_linear_infinite]">
+        </div>
+    </div>
+
+    <!-- PARTICLE LAYER -->
+    <div class="fixed inset-0 -z-10 opacity-40">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle,#ffffff10_1px,transparent_1px)] [background-size:40px_40px]">
+        </div>
+    </div>
+
+    <!-- POPUP (CINEMATIC WIN SCREEN) -->
+    <div id="pop" class="absolute inset-0 scale-0 duration-300 z-[9999]
+    flex items-center justify-center
+    backdrop-blur-3xl bg-black/70">
+
+        <div class="relative w-[80%] sm:w-[50%] md:w-[35%] aspect-square">
+
+            <!-- glow ring -->
+            <div
+                class="absolute inset-0 rounded-[40px] bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-violet-500 blur-2xl opacity-70 animate-pulse">
+            </div>
+
+            <!-- frame -->
+            <div class="relative w-full h-full rounded-[40px]
+            bg-[#0b1020]/70 border border-white/10
+            shadow-[0_0_120px_rgba(0,255,255,0.35),inset_0_0_40px_rgba(255,255,255,0.05)]
+            flex items-center justify-center overflow-hidden">
+
+                <img id="img" class="w-[85%] cursor-pointer h-[85%] object-contain drop-shadow-[0_0_40px_white]
+                animate-[popIn_.6s_ease]">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- GAME AREA -->
+    <section class="w-full h-screen flex items-center justify-center">
+
+        <div class="relative">
+
+            <!-- OUTER CINEMATIC GLOW -->
+            <div
+                class="absolute -inset-10 bg-gradient-to-r from-cyan-500 via-violet-600 to-pink-500 blur-[120px] opacity-25">
+            </div>
+
+            <!-- BOARD -->
+            <div
+                class="relative *:cursor-pointer grid grid-cols-3 grid-rows-3 gap-4 p-5
+            w-[320px] h-[320px]
+            sm:w-[420px] sm:h-[420px]
+            md:w-[520px] md:h-[520px]
+
+            rounded-[45px]
+
+            bg-[#0a0f1d]/60 backdrop-blur-2xl
+            border border-white/10
+
+            shadow-[inset_10px_10px_30px_rgba(0,0,0,0.8),inset_-8px_-8px_18px_rgba(255,255,255,0.05),0_40px_100px_rgba(0,0,0,0.7)]">
+
+                <button class="cell"></button>
+                <button class="cell"></button>
+                <button class="cell"></button>
+
+                <button class="cell"></button>
+                <button class="cell"></button>
+                <button class="cell"></button>
+
+                <button class="cell"></button>
+                <button class="cell"></button>
+                <button class="cell"></button>
+
+            </div>
+
+        </div>
+
+    </section>
+  </div>
+
+
+
+
+
+  <footer class="w-full min-h-screen bg-gradient-to-b from-[#14112e] to-[#090812] flex justify-center items-center py-20">
+
+    <div
+        class="relative w-[95%] md:w-[80%] xl:w-[70%] rounded-[35px] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_80px_rgba(0,0,0,.5)]">
+
+        <!-- glow -->
+        <div class="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-violet-600/30 blur-[120px]"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-cyan-500/30 blur-[120px]"></div>
+
+        <div class="relative z-10 flex flex-wrap xl:flex-nowrap items-center justify-center gap-16 p-12">
+
+            <!-- image -->
+            <div class="flex flex-col items-center">
+
+                <div
+                    class="w-72 h-72 rounded-full p-2 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-cyan-400 animate-pulse">
+
+                    <img src="img/github_profile_under_1mb.jpg"
+                        class="w-full h-full rounded-full object-cover border-4 border-[#1b183d]">
+
+                </div>
+
+                <h2 class="text-white text-4xl font-black mt-8 tracking-[8px]">
+                    PORIA
+                </h2>
+
+                <span class="text-violet-300 mt-2 text-xl tracking-[4px]">
+                    Front-End Developer
+                </span>
+
+            </div>
+
+
+
+            <!-- content -->
+            <div class="flex-1">
+
+                <h3
+                    class="text-5xl font-black text-white mb-6 uppercase tracking-[8px]">
+                    Let's Connect
+                </h3>
+
+                <p class="text-gray-300 text-xl leading-10 max-w-xl">
+                    Thanks for visiting my tic tac Game project.
+                    Feel free to contact me through any of the platforms below.
+                </p>
+
+
+
+                <div class="grid md:grid-cols-2 gap-6 mt-12">
+
+                    <!-- Telegram -->
+                    <a href="https://t.me/pori_07"
+                        target="_blank"
+                        class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-[#229ED9] duration-300">
+
+                        <h4 class="text-white text-2xl font-bold">
+                            Telegram
+                        </h4>
+
+                        <p class="text-gray-300 mt-2">
+                            @pori_07
+                        </p>
+
+                    </a>
+
+
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/poria.frontend"
+                        target="_blank"
+                        class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-pink-600 duration-300">
+
+                        <h4 class="text-white text-2xl font-bold">
+                            Instagram
+                        </h4>
+
+                        <p class="text-gray-300 mt-2">
+                            @poria.frontend
+                        </p>
+
+                    </a>
+
+
+
+                    <!-- Github -->
+                    <a href="https://github.com/poria-dev"
+                        target="_blank"
+                        class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-gray-900 duration-300">
+
+                        <h4 class="text-white text-2xl font-bold">
+                            Github
+                        </h4>
+
+                        <p class="text-gray-300 mt-2">
+                            github.com/poria-dev
+                        </p>
+
+                    </a>
+
+
+
+                    <!-- Linkedin -->
+                    <a href="https://linkedin.com/in/pooria-rezaee"
+                        target="_blank"
+                        class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:bg-blue-700 duration-300">
+
+                        <h4 class="text-white text-2xl font-bold">
+                            LinkedIn
+                        </h4>
+
+                        <p class="text-gray-300 mt-2">
+                            Pooria Rezaee
+                        </p>
+
+                    </a>
+
+                </div>
+                <div
+                    class="mt-14 border-t border-white/10 pt-8 text-center text-gray-400">
+
+                    © 2026 Poria Dev • Designed & Developed with HTML, Tailwind CSS & JavaScript
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+
+<script src="game.js"></script>
+
+</html>

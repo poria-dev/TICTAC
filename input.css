@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+
+
+/* ===== CINEMATIC CELL (AAA QUALITY) ===== */
+
+.cell{
+    position: relative;
+    border-radius: 22px;
+
+    background: radial-gradient(circle at 30% 30%, #111827, #05070f);
+
+    box-shadow:
+        inset 6px 6px 15px rgba(0,0,0,0.9),
+        inset -6px -6px 15px rgba(255,255,255,0.05);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size: 3rem;
+    font-weight: 900;
+
+    color: white;
+
+    transition: all .25s ease;
+    transform-style: preserve-3d;
+
+    overflow: hidden;
+}
+
+/* hover cinematic lift */
+.cell:hover{
+    transform: translateY(-6px) scale(0.97);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6),
+        inset 6px 6px 15px rgba(0,0,0,0.9),
+        inset -6px -6px 15px rgba(255,255,255,0.05);
+}
+
+/* click depth */
+.cell:active{
+    transform: scale(0.90);
+}
+
+/* glowing symbol effect */
+.cell:not(:empty){
+    animation: glow 0.5s ease;
+
+    text-shadow:
+        0 0 10px currentColor,
+        0 0 25px currentColor,
+        0 0 50px currentColor;
+}
+
+/* X / O cinematic coloring via JS text */
+.cell{
+    position: relative;
+}
+
+.cell::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at center, rgba(0,255,255,0.15), transparent 60%);
+    opacity:0;
+    transition:.3s;
+}
+
+.cell:hover::after{
+    opacity:1;
+}
+
+/* popup animation */
+@keyframes popIn{
+    0%{ transform: scale(.4) rotate(-10deg); opacity:0; }
+    100%{ transform: scale(1); opacity:1; }
+}
+
+/* glow animation */
+@keyframes glow{
+    0%{ transform: scale(.2); }
+    70%{ transform: scale(1.2); }
+    100%{ transform: scale(1); }
+}
+
+/* scan line animation */
+@keyframes scan{
+    0%{ transform: translateX(-100%); }
+    100%{ transform: translateX(100%); }
+}
